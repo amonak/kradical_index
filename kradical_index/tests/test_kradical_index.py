@@ -13,13 +13,13 @@ def ts(dt):
 
 class TestStorageByIndex(TestCustomStorageSystem):
     """Base class for custom backend tests."""
-    storage_type = "kradicale_storage_index"
+    storage_type = "kradical_index"
 
     def setup(self):
         super().setup()
         self.colpath = tempfile.mkdtemp()
         self.configuration.set("storage", "filesystem_folder", self.colpath)
-        self.configuration.set("storage", 'kradicale_storage_index_fields',
+        self.configuration.set("storage", 'kradical_index_fields',
                                'dtstart, dtend, uid, summary, organizer')
         self.application = Application(self.configuration, self.logger)
 

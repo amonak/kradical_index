@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Radicale Storage By Index
+Kradical Index
 """
 
 from setuptools import find_packages, setup

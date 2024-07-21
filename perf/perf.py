@@ -51,7 +51,7 @@ test_events = gen_events()
 def get_col():
     return list(app.Collection.discover(environ['PATH_INFO'], '0'))
 
-for type in ('kradicale_storage_index', ):
+for type in ('kradical_index', ):
     if len(sys.argv) > 2 and type not in sys.argv[2:]:
         continue
     shutil.rmtree(collection_folder, True)

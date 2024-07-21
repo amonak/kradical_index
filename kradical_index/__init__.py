@@ -65,7 +65,7 @@ class Db:
 
             if create:
                 self.create_database(self._connection)
-                if any(e for e in FileSystemCollection.list(self.collection)):
+                if any(e for e in FileSystemCollection._list(self.collection)):
                     self.reindex(self._connection)
         return self._connection
 
@@ -105,7 +105,7 @@ class Db:
     def reindex(self, connection):
         log.warn('Reindexing %s' % self.db_path)
         params = []
-        for href in FileSystemCollection.list(self.collection):
+        for href in FileSystemCollection._list(self.collection):
             item = FileSystemCollection.get(self.collection, href)
             if item.name != 'VCARD':
                 params.append(item)
@@ -180,7 +180,7 @@ class Collection(FileSystemCollection):
             self.fields = [
                 x.strip() for x in 
                 self._storage.configuration.get(
-                'storage', 'kradicale_storage_index_fields').split(',')
+                'storage', 'kradical_index_fields').split(',')
             ]
         except KeyError:
             self.fields = ['dtstart', 'dtend', 'uid']
